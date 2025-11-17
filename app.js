@@ -1,5 +1,5 @@
 // Import Express.js
-const express = require('express');
+const express = require("express");
 
 // Create an Express app
 const app = express();
@@ -8,11 +8,12 @@ const app = express();
 app.use(express.json());
 
 // Set port and verify_token
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const verifyToken = process.env.VERIFY_TOKEN;
 
 // Route for GET requests
 app.get('/', (req, res) => {
+  res.send("Hello from Render!");
   const { 'hub.mode': mode, 'hub.challenge': challenge, 'hub.verify_token': token } = req.query;
 
   if (mode === 'subscribe' && token === verifyToken) {
@@ -33,5 +34,5 @@ app.post('/', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Server listening on port ${PORT}`);
 });
