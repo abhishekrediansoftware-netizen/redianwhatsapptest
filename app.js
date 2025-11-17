@@ -32,6 +32,6 @@ app.post('/', (req, res) => {
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`\nListening on port ${port}\n`);
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
 });
